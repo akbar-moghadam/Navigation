@@ -1,59 +1,42 @@
 import React from 'react'
-import Home from './home'
-import About from './about'
-import Service from './services'
-import Contact from './contact'
-import { BrowserRouter as Router,
-    Switch,
-    Route,
-    Link} from 'react-router-dom'
+
+import Imgg from './image/negar.png'
+import Menu from './image/menu.svg'
+import {Link} from 'react-router-dom'
+import '../index.css'
 
 function Navigation(){
 
     return(
         <header>
-            <div>
-
+            <div className="brand">
+              <img className="brand_img" src={Imgg} alt=""/>
             </div>
             <input type="checkbox" id="chk" name="check"/>
+            <label for="chk">
+          <img className="menu_img" style={{width:30}} src={Menu} alt=""/>
+        </label>
             <nav>
-            <Router>
+            
       <div>
+
         <ul>
           <li>
-            <Link to="/">Home</Link>
+            <Link style={{textDecoration:'none'}} to="/"><p>Home</p></Link>
           </li>
           <li>
-            <Link to="/about">About</Link>
+            <Link style={{textDecoration:'none'}} to="/about"><p>About</p></Link>
           </li>
           <li>
-            <Link to="/contact">Contact</Link>
+            <Link style={{textDecoration:'none'}} to="/contact"><p>Contact</p></Link>
           </li>
           <li>
-            <Link to="/service">Service</Link>
+            <Link style={{textDecoration:'none'}} to="/service"><p>Service</p></Link>
           </li>
         </ul>
-
-        <hr />
-
-   
-        <Switch>
-          <Route exact path="/">
-            <Home />
-          </Route>
-          <Route path="/about">
-            <About />
-          </Route>
-          <Route path="/contact">
-            <Contact />
-          </Route>
-          <Route path="/service">
-            <Service />
-          </Route>
-          
-        </Switch>
-      </div>
-    </Router>
+        </div>
+       
+        
             </nav>
         </header>
     )
