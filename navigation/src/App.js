@@ -7,7 +7,8 @@ import Service from './component/services'
 import Contact from './component/contact'
 import { BrowserRouter as Router,
   Switch,
-  Route
+  Route,
+  useLocation
   } from 'react-router-dom'
 
 function App() {
@@ -32,6 +33,9 @@ function App() {
      <Route path="/service">
        <Service />
      </Route>
+     <Route path="*">
+            <NoMatch />
+          </Route>
      
    </Switch>
  
@@ -41,5 +45,15 @@ function App() {
     </div>
   );
 }
+function NoMatch() {
+  let location = useLocation();
 
+  return (
+    <div>
+      <h3>
+        No match for <code>{location.pathname}</code>
+      </h3>
+    </div>
+  );
+}
 export default App;
